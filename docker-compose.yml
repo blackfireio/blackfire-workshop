@@ -1,0 +1,11 @@
+blackfire:
+    image: blackfire/blackfire
+    environment:
+        - BLACKFIRE_SERVER_ID
+        - BLACKFIRE_SERVER_TOKEN
+app:
+    image: tucksaun/blackfire-workshop:blackfire
+    volumes:
+        - .:/app
+    links:
+        - blackfire

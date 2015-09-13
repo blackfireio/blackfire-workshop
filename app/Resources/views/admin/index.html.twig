@@ -1,0 +1,24 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_index' %}
+
+{% block main %}
+    <h1>{{ 'title.dashboard'|trans }}</h1>
+
+    <dl>
+        <dt>{{ 'dashboard.posts_count' | trans }}</dt>
+        <dd>{{ posts_count }}</dd>
+        <dt>{{ 'dashboard.comments_count' | trans }}</dt>
+        <dd>{{ comments_count }}</dd>
+    </dl>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+        <a href="{{ path('admin_post_new') }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-plus"></i> {{ 'action.create_post'|trans }}
+        </a>
+    </div>
+
+    {{ parent() }}
+{% endblock %}
