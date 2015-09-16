@@ -86,6 +86,8 @@ doctrine:
         path:     "%database_path%"
 
     orm:
+        hydrators:
+            PostsWithCommentsCountHydrator: AppBundle\Hydrators\PostsWithCommentsCountHydrator
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 

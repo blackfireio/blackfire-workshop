@@ -80,6 +80,8 @@ class Post
      */
     private $comments;
 
+    private $commentsCount;
+
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
@@ -168,6 +170,15 @@ class Post
     {
         $this->comments->removeElement($comment);
         $comment->setPost(null);
+    }
+
+    public function getCommentsCount()
+    {
+        if (isset($this->commentsCount)) {
+            return $this->commentsCount;
+        }
+
+        return $this->comments->count();
     }
 
     public function getSummary()

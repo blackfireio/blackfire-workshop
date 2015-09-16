@@ -41,10 +41,9 @@ class PostRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('p')
-            ->innerJoin('p.comments', 'c')
-            ->addSelect('SIZE(p.comments)')
+            ->addSelect('SIZE(p.comments) as commentsCount')
             ->getQuery()
-            ->getResult()
+            ->getResult('PostsWithCommentsCountHydrator')
         ;
     }
 
