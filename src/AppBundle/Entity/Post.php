@@ -73,7 +73,8 @@ class Post
      * @ORM\OneToMany(
      *      targetEntity="Comment",
      *      mappedBy="post",
-     *      orphanRemoval=true
+     *      orphanRemoval=true,
+     *      fetch="EXTRA_LAZY"
      * )
      * @ORM\OrderBy({"publishedAt" = "DESC"})
      */
