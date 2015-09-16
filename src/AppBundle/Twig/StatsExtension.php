@@ -25,7 +25,7 @@ class StatsExtension extends \Twig_Extension
     public function getPostsCountStats()
     {
         if (!isset($this->stats['posts'])) {
-            $this->stats['posts'] = count($this->doctrine->getRepository('AppBundle:Post')->findAll());
+            $this->stats['posts'] = $this->doctrine->getRepository('AppBundle:Post')->getTotalCount();
         }
 
         return $this->stats['posts'];
@@ -34,7 +34,7 @@ class StatsExtension extends \Twig_Extension
     public function getCommentsCountStats()
     {
         if (!isset($this->stats['comments'])) {
-            $this->stats['comments'] = count($this->doctrine->getRepository('AppBundle:Comment')->findAll());
+            $this->stats['comments'] = $this->doctrine->getRepository('AppBundle:Comment')->getTotalCount();
         }
 
         return $this->stats['comments'];

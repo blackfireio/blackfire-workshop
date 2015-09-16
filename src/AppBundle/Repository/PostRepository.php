@@ -36,4 +36,14 @@ class PostRepository extends EntityRepository
             ->getResult()
         ;
     }
+
+    public function getTotalCount()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->select('COUNT(p.id)')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }
