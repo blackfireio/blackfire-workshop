@@ -31,7 +31,6 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
-    profiler: { only_exceptions: false }
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
