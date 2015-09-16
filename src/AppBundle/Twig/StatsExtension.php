@@ -6,14 +6,12 @@ use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class StatsExtension extends \Twig_Extension
 {
+    private $doctrine;
     private $stats;
 
     public function __construct(Registry $doctrine)
     {
-        $this->stats = array(
-            'posts' => count($doctrine->getRepository('AppBundle:Post')->findAll()),
-            'comments' => count($doctrine->getRepository('AppBundle:Comment')->findAll()),
-        );
+        $this->doctrine = $doctrine;
     }
 
     public function getFunctions()
@@ -26,11 +24,19 @@ class StatsExtension extends \Twig_Extension
 
     public function getPostsCountStats()
     {
+        if (!isset($this->stats['posts'])) {
+            $this->stats['posts'] = count($this->doctrine->getRepository('AppBundle:Post')->findAll());
+        }
+
         return $this->stats['posts'];
     }
 
     public function getCommentsCountStats()
     {
+        if (!isset($this->stats['comments'])) {
+            $this->stats['comments'] = count($this->doctrine->getRepository('AppBundle:Comment')->findAll());
+        }
+
         return $this->stats['comments'];
     }
 
