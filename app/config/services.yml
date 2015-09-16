@@ -43,7 +43,7 @@ services:
 
     app.forecast:
         class:     %app.forecast.class%
-        arguments: ["https://forecast-ws.appspot.com"]
+        arguments: ["https://forecast-ws.appspot.com", @doctrine.orm.default_result_cache]
 
     app.server_run_listener:
         class:     AppBundle\EventListener\ServerRunListener
