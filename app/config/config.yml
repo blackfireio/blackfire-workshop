@@ -52,18 +52,6 @@ twig:
     form_themes:
         - "bootstrap_3_layout.html.twig"
 
-# Assetic Configuration (used for managing web assets: CSS, JavaScript, Sass, etc.)
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: false
-    bundles:        [ ]
-    filters:
-        cssrewrite: ~
-        jsqueeze: ~
-        scssphp:
-            # the formatter must be the FQCN (don't use the 'compressed' value)
-            formatter: "Leafo\\ScssPhp\\Formatter\\Compressed"
-
 # Doctrine Configuration (used to access databases and manipulate their information)
 doctrine:
     dbal:
@@ -85,11 +73,3 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-
-# Swiftmailer Configuration (used to send emails)
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
