@@ -11,6 +11,7 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Post;
 
@@ -33,7 +34,7 @@ class PostRepository extends EntityRepository
             ->orderBy('p.publishedAt', 'DESC')
             ->setMaxResults($limit)
             ->getQuery()
-            ->getResult()
+            ->getResult(AbstractQuery::HYDRATE_ARRAY)
         ;
     }
 
