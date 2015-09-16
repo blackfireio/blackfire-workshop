@@ -16,11 +16,12 @@
             </tr>
         </thead>
         <tbody>
-        {% for post in posts %}
+        {% for post_array in posts %}
+            {% set post = post_array[0] %}
             <tr>
                 <td>{{ post.title }}</td>
                 <td>{{ post.authorEmail }}</td>
-                <td>{{ post.comments|length }}</td>
+                <td>{{ post_array[1] }}</td>
                 <td>{% if post.publishedAt %}{{ post.publishedAt|localizeddate('short', 'short', 'en') }}{% endif %}</td>
                 <td>
                     <div class="item-actions">

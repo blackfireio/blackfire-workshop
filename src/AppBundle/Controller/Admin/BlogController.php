@@ -53,7 +53,7 @@ class BlogController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('AppBundle:Post')->findAll();
+        $posts = $em->getRepository('AppBundle:Post')->findAllWithCommentCounts();
 
         return $this->render('admin/blog/index.html.twig', array('posts' => $posts));
     }

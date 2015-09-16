@@ -37,6 +37,17 @@ class PostRepository extends EntityRepository
         ;
     }
 
+    public function findAllWithCommentCounts()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->innerJoin('p.comments', 'c')
+            ->addSelect('SIZE(p.comments)')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     public function getTotalCount()
     {
         return $this
