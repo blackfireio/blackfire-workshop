@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
+ * @ORM\Table(indexes={@ORM\Index(name="published_at_idx", columns={"publishedAt"})})
  *
  * Defines the properties of the Post entity to represent the blog posts.
  * See http://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
@@ -73,11 +74,14 @@ class Post
      * @ORM\OneToMany(
      *      targetEntity="Comment",
      *      mappedBy="post",
-     *      orphanRemoval=true
+     *      orphanRemoval=true,
+     *      fetch="EXTRA_LAZY"
      * )
      * @ORM\OrderBy({"publishedAt" = "DESC"})
      */
     private $comments;
+
+    private $commentsCount;
 
     public function __construct()
     {
@@ -167,6 +171,15 @@ class Post
     {
         $this->comments->removeElement($comment);
         $comment->setPost(null);
+    }
+
+    public function getCommentsCount()
+    {
+        if (isset($this->commentsCount)) {
+            return $this->commentsCount;
+        }
+
+        return $this->comments->count();
     }
 
     public function getSummary()

@@ -62,7 +62,7 @@ Getting started w/ Docker
 
 Install local application dependencies:
 ```
-composer install
+composer install -o
 ```
 
 You can pull the Docker images by running:

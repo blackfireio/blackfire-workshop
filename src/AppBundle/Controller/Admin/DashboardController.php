@@ -21,16 +21,11 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $commentsCount = $postsCount = 0;
-        foreach ($em->getRepository('AppBundle:Post')->findAll() as $post) {
-            ++$postsCount;
-            $commentsCount += count($post->getComments());
-        }
+        $doctrine = $this->getDoctrine();
 
         return $this->render('admin/index.html.twig', array(
-            'posts_count' => $postsCount,
-            'comments_count' => $commentsCount,
+            'posts_count' => $doctrine->getRepository('AppBundle:Post')->getTotalCount(),
+            'comments_count' => $doctrine->getRepository('AppBundle:Comment')->getTotalCount(),
         ));
     }
 }
