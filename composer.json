@@ -7,12 +7,18 @@
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sensiolabs-de/orm"
+        }
+    ],
     "require": {
         "php"                                  : ">=7.3",
         "ext-pdo_sqlite"                       : "*",
         "doctrine/doctrine-bundle"             : "^1.10",
         "doctrine/doctrine-fixtures-bundle"    : "^2.4",
-        "doctrine/orm"                         : "^2.5",
+        "doctrine/orm"                         : "^2.5@dev",
         "erusev/parsedown"                     : "^1.5",
         "ezyang/htmlpurifier"                  : "^4.7",
         "incenteev/composer-parameter-handler" : "~2.1",
