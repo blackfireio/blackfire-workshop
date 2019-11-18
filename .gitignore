@@ -12,3 +12,4 @@
 /vendor/
 /web/bundles/
 /web/xhprof
+.vagrant
