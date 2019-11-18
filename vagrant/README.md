@@ -1,7 +1,7 @@
 Blackfire Workshop VM
 =====================
 
-This little tool aims to build a ready-to-run VM for the Blackfire workshop.
+This little tool aims to build an exportable ready-to-run VM for the Blackfire workshop.
 
 Pre-requisite / Installation
 ----------------------------
@@ -46,3 +46,4 @@ Exporting the VM
 ----------------
 
 You will need to do that from Virtualbox itself.
+
