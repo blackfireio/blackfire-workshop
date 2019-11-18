@@ -8,6 +8,7 @@ add-apt-repository -y ppa:ondrej/php
 apt-get update
 apt-get install -qy zsh curl git firefox firefox-locale-en firefox-locale-fr
 apt-get install -qy php7.3 php7.3-cli php7.3-fpm php7.3-curl php7.3-sqlite3 php7.3-pgsql php7.3-mysql php7.3-xml php7.3-zip php7.3-opcache php7.3-json php7.3-intl php7.3-mbstring 
+apt-get install -qy php-apcu
 
 # install composer
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --install-dir=/usr/local/bin --filename=composer
