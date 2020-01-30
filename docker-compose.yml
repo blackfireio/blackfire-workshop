@@ -1,11 +1,16 @@
-blackfire:
-    image: blackfire/blackfire
-    environment:
-        - BLACKFIRE_SERVER_ID
-        - BLACKFIRE_SERVER_TOKEN
-app:
-    image: tucksaun/blackfire-workshop:blackfire
-    volumes:
-        - .:/app
-    links:
-        - blackfire
+version: '3'
+
+services:
+    blackfire:
+        image: blackfire/blackfire:latest
+        environment:
+            - BLACKFIRE_SERVER_ID
+            - BLACKFIRE_SERVER_TOKEN
+    app:
+        build: docker/php
+        volumes:
+            - .:/app
+        ports:
+          - "8000:8000"
+        links:
+            - blackfire
