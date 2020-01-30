@@ -16,7 +16,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     mv composer.phar /usr/local/bin/composer
 
 # Enable OPCache
-RUN docker-php-ext-install opcache
+RUN docker-php-ext-install opcache && \
+    pecl install apcu-5.1.18 && \
+    docker-php-ext-enable apcu
 
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
